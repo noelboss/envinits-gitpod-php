@@ -10,7 +10,7 @@ RUN apt-get update \
 
 RUN mkdir /var/run/mysqld && touch /var/log/php7.2-fpm.log \
  && chown -R gitpod:gitpod /var/run/mysqld /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql \
- && chown -R gitpod:gitpod /usr/sbin/php-fpm7.2 /var/log/php7.2-fpm.log /run/php /etc/php
+ && chown -R gitpod:gitpod /usr/sbin/php-fpm7.2 /var/log/php7.2-fpm.log /etc/php
 
 RUN a2enmod rewrite
 
