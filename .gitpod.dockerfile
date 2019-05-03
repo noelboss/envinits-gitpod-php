@@ -8,9 +8,9 @@ RUN apt-get update \
  && apt-get -y install php-amqp php-apcu php-imagick php-memcached php-mongodb php-oauth php-redis\
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
 
-RUN mkdir /var/run/mysqld && touch /var/log/php7.2-fpm.log /run/php/php7.2-fpm.sock \
+RUN mkdir /var/run/mysqld && touch /var/log/php7.2-fpm.log \
  && chown -R gitpod:gitpod /var/run/mysqld /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql \
- && chown -R gitpod:gitpod /usr/sbin/php-fpm7.2 /var/log/php7.2-fpm.log /etc/php
+ && chown -R gitpod:gitpod /usr/sbin/php-fpm7.2 /var/log/php7.2-fpm.log /run/php /etc/php
 
 RUN a2enmod rewrite
 
