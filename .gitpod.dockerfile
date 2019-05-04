@@ -14,6 +14,18 @@ RUN mkdir /var/run/mysqld && touch /var/log/php7.2-fpm.log \
 
 RUN a2enmod rewrite
 
+RUN echo '[www]\n\
+user = gitpod\n\
+group = gitpod\n\
+listen = 0.0.0.0:9000\n\
+listen.owner = gitpod\n\
+listen.group = gitpod\n\
+pm = dynamic\n\
+pm.max_children = 5\n\
+pm.start_servers = 2\n\
+pm.min_spare_servers = 1\n\
+pm.max_spare_servers = 3' > /etc/php/7.2/fpm/pool.d/www.conf
+
 RUN echo 'worker_processes auto;\n\
 pid /var/run/nginx/nginx.pid;\n\
 include /etc/nginx/modules-enabled/*.conf;\n\
